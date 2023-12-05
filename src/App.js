@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+
+import "./App.css";
+import Navbar from "./components/navbar";
+import SongsList from "./components/songslist";
+import Player from "./components/player";
 
 function App() {
+  const songdata = [
+    {
+      name: "Kesariya",
+      artist: "Arijit Singh",
+      audioSrc: "song1.mp3",
+    },
+    {
+      name: "Bol Do Na Zara",
+      artist: "Armaan malik",
+      audioSrc: "song2.mp3",
+    },
+    {
+      name: "Bekhalayi",
+      artist: "Sachet Tondon",
+      audioSrc: "song3.mp3",
+    },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <div className="main-content">
+        <h1>Your Songs</h1>
+        <SongsList SongsList={songdata} />
+        <Player songs={songdata} />
+      </div>
+    </>
   );
 }
 
